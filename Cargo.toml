@@ -1,7 +1,6 @@
 [package]
 name = "os"
 version = "0.1.0"
-authors = ["Luc Street <lucis-fluxum@users.noreply.github.com>"]
 edition = "2018"
 
 [package.metadata.bootimage]
@@ -22,7 +21,7 @@ linked_list_allocator = "0.9.0"
 log = "0.4.0"
 pc-keyboard = "0.5.0"
 pic8259 = "0.10.0"
-ps2 = { git = "https://github.com/lucis-fluxum/ps2-rs", tag = "v0.2.0" }
+ps2 = { git = "https://github.com/0xSiO/ps2-rs", tag = "v0.2.0" }
 spinning_top = { version = "0.2.0", features = ["nightly"] }
 tinypci = { git = "https://github.com/trashbyte/tinypci", default-features = false }
 uart_16550 = "0.2.0"
