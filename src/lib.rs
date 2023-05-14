@@ -62,14 +62,14 @@ pub fn initialize(boot_info: &'static BootInfo) {
     keyboard::initialize_ps2_controller().unwrap();
     info!("Initialization complete.");
 
-    for device_info in tinypci::brute_force_scan() {
-        info!(
-            "Device {}: {:?} ({})",
-            device_info.device,
-            device_info.full_class,
-            tinypci::name_for_vendor_id(device_info.vendor_id)
-        );
-    }
+    // for device_info in tinypci::brute_force_scan() {
+    //     info!(
+    //         "Device {}: {:?} ({})",
+    //         device_info.device,
+    //         device_info.full_class,
+    //         tinypci::name_for_vendor_id(device_info.vendor_id)
+    //     );
+    // }
 }
 
 pub fn halt() -> ! {
