@@ -42,7 +42,7 @@ impl Stream for ScancodeQueue {
             return Poll::Ready(Some(scancode));
         }
 
-        WAKER.register(&context.waker());
+        WAKER.register(context.waker());
 
         match SCANCODE_QUEUE.pop() {
             Some(scancode) => {

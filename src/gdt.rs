@@ -2,7 +2,8 @@
 
 use conquer_once::spin::Lazy;
 use x86_64::{
-    instructions::{segmentation::set_cs, tables::load_tss},
+    instructions::tables::load_tss,
+    registers::segmentation::{Segment, CS},
     structures::{
         gdt::{Descriptor, GlobalDescriptorTable, SegmentSelector},
         tss::TaskStateSegment,
@@ -47,7 +48,7 @@ static GDT: Lazy<(GlobalDescriptorTable, Selectors)> = Lazy::new(|| {
 pub fn initialize_global_descriptor_table() {
     GDT.0.load();
     unsafe {
-        set_cs(GDT.1.code_selector);
+        CS::set_reg(GDT.1.code_selector);
         load_tss(GDT.1.tss_selector);
     }
 }

@@ -79,7 +79,7 @@ impl LinkedListAllocator {
         let mut current = &mut self.head;
         // look for a large enough memory region in linked list
         while let Some(ref mut region) = current.next {
-            if Self::is_suitable_region(&region, size, align) {
+            if Self::is_suitable_region(region, size, align) {
                 // get pointer to the FreeListNode after the suitable region
                 let next_free_node = region.next.take();
                 // get aligned address to start of new region
